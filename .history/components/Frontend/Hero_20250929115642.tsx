@@ -177,6 +177,19 @@ const Hero = () => {
   );
 };
 
-
+const SingleImage = ({ href, imgSrc, alt }: { href: string; imgSrc: string; alt: string }) => {
+  return (
+    <a 
+      href={href} 
+      className="group flex items-center justify-center p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all duration-300 transform hover:scale-110"
+    >
+      <img 
+        src={imgSrc} 
+        alt={alt} 
+        className="h-8 w-auto filter grayscale group-hover:grayscale-0 transition-all duration-300" 
+      />
+    </a>
+  );
+};
 
 export default Hero;
