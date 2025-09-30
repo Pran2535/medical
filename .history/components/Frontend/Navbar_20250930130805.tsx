@@ -24,7 +24,7 @@ const products = [
 
 const callsToAction = [
   { name: 'Watch demo', href: '/demo', icon: PlayCircleIcon },
-  { name: 'Report an issue', href: '/contact', icon: PhoneIcon },
+  { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]
 
 const ProductPopover = () => (
@@ -100,7 +100,7 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boo
             </Disclosure>
             <Link href="/features" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Features</Link>
             <Link href="/marketplace" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Marketplace</Link>
-            <Link href="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">About Us</Link>
+            <Link href="/About" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">About Us</Link>
           </div>
           <div className="py-6">
             <Link href="/login" className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</Link>

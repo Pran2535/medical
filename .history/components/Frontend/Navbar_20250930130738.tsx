@@ -24,7 +24,7 @@ const products = [
 
 const callsToAction = [
   { name: 'Watch demo', href: '/demo', icon: PlayCircleIcon },
-  { name: 'Report an issue', href: '/contact', icon: PhoneIcon },
+  { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]
 
 const ProductPopover = () => (

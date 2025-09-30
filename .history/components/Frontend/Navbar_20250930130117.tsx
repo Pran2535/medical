@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel, Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -15,16 +14,16 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
-  { name: 'Video Conferencing', description: 'Get a quick doctor discussion', href: '/video-conferencing', icon: VideoCameraIcon },
-  { name: 'Book sessions with doctors', description: 'Skip the waiting queue', href: '/book-appointment', icon: CalendarDaysIcon },
-  { name: 'Get Message', description: 'Need a messenger? We are here.', href: '/messaging', icon: ChatBubbleLeftRightIcon },
-  { name: 'Emergency', description: 'Nearest emergency ward', href: '/emergency', icon: ExclamationTriangleIcon },
-  { name: 'Health Tracker', description: 'Track your health and reports', href: '/health-tracker', icon: HeartIcon },
+  { name: 'Video Conferencing', description: 'Get a quick doctor discussion', href: '#', icon: VideoCameraIcon },
+  { name: 'Book sessions with doctors', description: 'Skip the waiting queue', href: '#', icon: CalendarDaysIcon },
+  { name: 'Get Message', description: 'Need a messenger? We are here.', href: '#', icon: ChatBubbleLeftRightIcon },
+  { name: 'Emergency', description: 'Nearest emergency ward', href: '#', icon: ExclamationTriangleIcon },
+  { name: 'Health Tracker', description: 'Track your health and reports', href: '#', icon: HeartIcon },
 ]
 
 const callsToAction = [
-  { name: 'Watch demo', href: '/demo', icon: PlayCircleIcon },
-  { name: 'Report an issue', href: '/contact', icon: PhoneIcon },
+  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
+  { name: 'Contact sales', href: '#', icon: PhoneIcon },
 ]
 
 const ProductPopover = () => (
@@ -41,10 +40,7 @@ const ProductPopover = () => (
               <item.icon className="size-6 text-gray-400 group-hover:text-white" />
             </div>
             <div className="flex-auto">
-              <Link href={item.href} className="block font-semibold text-white">
-                {item.name}
-                <span className="absolute inset-0" />
-              </Link>
+              <a href={item.href} className="block font-semibold text-white">{item.name}</a>
               <p className="mt-1 text-gray-400">{item.description}</p>
             </div>
           </div>
@@ -52,10 +48,10 @@ const ProductPopover = () => (
       </div>
       <div className="grid grid-cols-2 divide-x divide-white/10 bg-gray-700/50">
         {callsToAction.map((item) => (
-          <Link key={item.name} href={item.href} className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-700/50">
+          <a key={item.name} href={item.href} className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-700/50">
             <item.icon className="size-5 text-gray-500" />
             {item.name}
-          </Link>
+          </a>
         ))}
       </div>
     </PopoverPanel>
@@ -65,9 +61,9 @@ const ProductPopover = () => (
 const DesktopMenu = () => (
   <PopoverGroup className="hidden lg:flex lg:gap-x-12 items-center">
     <ProductPopover />
-    <Link href="/features" className="text-sm/6 font-semibold text-white">Features</Link>
-    <Link href="/marketplace" className="text-sm/6 font-semibold text-white">Marketplace</Link>
-    <Link href="/about" className="text-sm/6 font-semibold text-white">About Us</Link>
+    <a href="/" className="text-sm/6 font-semibold text-white">Features</a>
+    <a href="#" className="text-sm/6 font-semibold text-white">Marketplace</a>
+    <a href="/About" className="text-sm/6 font-semibold text-white">About Us</a>
   </PopoverGroup>
 )
 
@@ -76,9 +72,9 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boo
     <div className="fixed inset-0 z-50" />
     <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
       <div className="flex items-center justify-between">
-        <Link href="/" className="-m-1.5 p-1.5">
+        <a href="/" className="-m-1.5 p-1.5">
           <img alt="Logo" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" className="h-8 w-auto" />
-        </Link>
+        </a>
         <button type="button" onClick={() => setMobileMenuOpen(false)} className="-m-2.5 rounded-md p-2.5 text-gray-400">
           <XMarkIcon className="size-6" />
         </button>
@@ -92,18 +88,16 @@ const MobileMenu = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boo
               </DisclosureButton>
               <DisclosurePanel className="mt-2 space-y-2">
                 {[...products, ...callsToAction].map((item) => (
-                  <DisclosureButton key={item.name} as={Link} href={item.href} className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5">
-                    {item.name}
-                  </DisclosureButton>
+                  <DisclosureButton key={item.name} as="a" href={item.href} className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5">{item.name}</DisclosureButton>
                 ))}
               </DisclosurePanel>
             </Disclosure>
-            <Link href="/features" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Features</Link>
-            <Link href="/marketplace" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Marketplace</Link>
-            <Link href="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">About Us</Link>
+            <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Features</a>
+            <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Marketplace</a>
+            <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">About Us</a>
           </div>
           <div className="py-6">
-            <Link href="/login" className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</Link>
+            <a href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
           </div>
         </div>
       </div>
@@ -118,9 +112,9 @@ export default function Navbar() {
     <header className="bg-gray-900 sticky top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <a href="#" className="-m-1.5 p-1.5">
             <img alt="Logo" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" className="h-8 w-auto" />
-          </Link>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button onClick={() => setMobileMenuOpen(true)} className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400">
@@ -129,7 +123,7 @@ export default function Navbar() {
         </div>
         <DesktopMenu />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/login" className="text-sm/6 font-semibold text-white bg-blue-600 py-3 px-6 rounded-md hover:bg-blue-700">Log in →</Link>
+          <a href="#" className="text-sm/6 font-semibold text-white bg-blue-600 py-3 px-6 rounded-md hover:bg-blue-700">Log in →</a>
         </div>
       </nav>
       <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
